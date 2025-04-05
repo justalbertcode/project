@@ -1,4 +1,7 @@
 'use strict';
+const result = document.getElementById('result')
+const data = document.getElementById('data')
+
 
 let numberOfFilms;
 
@@ -40,23 +43,23 @@ rememberMyFilms();
 
 function detectPersonalLevel(){
     if (personalMovieDB.count < 10){
-        console.log('Просмотрено довольно мало фильмов');
+        result.innerText = 'Просмотрено довольно мало фильмов';
     } else if (personalMovieDB.count >= 10 && personalMovieDB.count <30) {
-        console.log('Вы классический зритель');
+         result.innerText = 'Вы классический зритель';
     } else if (personalMovieDB.count >= 30){
-        console.log('Вы киноман!');
+         result.innerText = 'Вы киноман!';
     } else {
-        console.log('Произошла ошибка');
+         result.innerText = 'Произошла ошибка';
     }
 }
 
 detectPersonalLevel();
 
-function showMyDB(hidden){
-    if(!hidden){
-        console.log(personalMovieDB);
-    }
-}
+// function showMyDB(hidden){
+//     if(!hidden){
+//         data.innerText = JSON(personalMovieDB)
+//     }
+// }
 showMyDB(personalMovieDB.privat);
 
 function writeYourGenres(){
